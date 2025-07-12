@@ -1,0 +1,102 @@
+The Trapezoidal Rule is a numerical method used to approximate definite integrals. It assumes the function behaves like a straight line between two adjacent points.
+
+Formula:
+
+∫
+𝑎
+𝑏
+𝑓
+(
+𝑥
+)
+ 
+𝑑
+𝑥
+≈
+ℎ
+2
+[
+𝑓
+(
+𝑎
+)
++
+2
+𝑓
+(
+𝑥
+1
+)
++
+2
+𝑓
+(
+𝑥
+2
+)
++
+⋯
++
+2
+𝑓
+(
+𝑥
+𝑛
+−
+1
+)
++
+𝑓
+(
+𝑏
+)
+]
+∫ 
+a
+b
+​
+ f(x)dx≈ 
+2
+h
+​
+ [f(a)+2f(x 
+1
+​
+ )+2f(x 
+2
+​
+ )+⋯+2f(x 
+n−1
+​
+ )+f(b)]
+Where,
+ℎ
+=
+𝑏
+−
+𝑎
+𝑛
+h= 
+n
+b−a
+​
+ 
+
+🐍 Python Code:
+
+import math
+
+def f(x):
+    return x * x  # মূল ফাংশন f(x) = x^2
+
+# 🔷 Trapezoidal Rule
+def trapezoidal(a, b, n):
+    h = (b - a) / n  # h = প্রতিটি ভাগের প্রস্থ (step size)
+    result = f(a) + f(b)  # f(a) ও f(b) যোগ করা হচ্ছে
+
+    for i in range(1, n):
+        result += 2 * f(a + i * h)  # মাঝের মানগুলো ২ গুণ করে যোগ
+
+    return (h / 2) * result  # চূড়ান্ত মান h/2 দিয়ে গুণ
+
+    return (h / 2) * result
